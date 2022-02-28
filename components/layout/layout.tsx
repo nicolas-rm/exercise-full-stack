@@ -14,8 +14,8 @@ export default function CenteredTabs() {
   return (
     <Box>
       <Tabs value={value} onChange={handleChange} centered sx={{ height: '50px',}}>
-        <Tab label="Menu" href='/'/>
-        <Tab label="Contacto" href='/contacto'/>
+        <Tab label="Menu" />
+        <Tab label="Contacto" />
       </Tabs>
       <Divider />
     </Box>

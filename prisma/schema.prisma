@@ -52,7 +52,7 @@ model Saucers {
 model ImageSaucers {
   id      String    @id @default(uuid())
   name    String
-  url     String
+  url     String?
   saucer  String
   Saucers Saucers[]
 }
