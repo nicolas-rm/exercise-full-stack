@@ -12,11 +12,10 @@ export default function CenteredTabs() {
   };
 
   return (
-    <Box sx={{ width: '100%', bgcolor: 'background.paper', marginTop: 2  }}>
+    <Box>
       <Tabs value={value} onChange={handleChange} centered sx={{ height: '50px',}}>
-        <Tab label="Menu"/>
-        <Tab label="Platillos" />
-        <Tab label="Contacto" />
+        <Tab label="Menu" href='/'/>
+        <Tab label="Contacto" href='/contacto'/>
       </Tabs>
       <Divider />
     </Box>

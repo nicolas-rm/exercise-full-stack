@@ -1,0 +1,58 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// one (Restaurant) to Many (Menus)
+model Restaurants {
+  id     String  @id @default(uuid())
+  name   String
+  adress String
+  phone  String
+  menu   Menus[]
+}
+
+// one (Menu) to Many (Saucer)
+model Menus {
+  id            String       @id @default(uuid())
+  name          String
+  typeMenu      TypeMenu
+  restaurant    String
+  Restaurants   Restaurants? @relation(fields: [restaurantsId], references: [id])
+  restaurantsId String?
+  saucer        Saucers[]
+}
+
+enum TypeMenu {
+  meat_and_chicken
+  seafood
+  vegans
+}
+
+// one (Saucer) to one (ImageSaucer)
+model Saucers {
+  id             String        @id @default(uuid())
+  name           String
+  restaurant     String
+  price          String
+  typeMenu       TypeMenu
+  Menus          Menus?        @relation(fields: [menusId], references: [id])
+  menusId        String?
+  imageSaucer    ImageSaucers? @relation(fields: [imageSaucersId], references: [id])
+  imageSaucersId String?
+}
+
+model ImageSaucers {
+  id      String    @id @default(uuid())
+  name    String
+  url     String
+  saucer  String
+  Saucers Saucers[]
+}
