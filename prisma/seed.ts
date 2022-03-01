@@ -1,6 +1,5 @@
 // prisma/seed.ts
 import { PrismaClient } from '@prisma/client'
-import { restaurants } from '../data/restaurants';
 
 const prisma = new PrismaClient()
 async function main() {
