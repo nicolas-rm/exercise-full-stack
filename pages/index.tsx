@@ -1,4 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
+
+/**
+ * TODO: Pages/index
+ */
 import * as React from 'react';
 import { ImageListItem, Container, Grid, Paper, Box, CssBaseline } from '@mui/material';
 import { experimentalStyled as styled } from "@mui/material/styles";
